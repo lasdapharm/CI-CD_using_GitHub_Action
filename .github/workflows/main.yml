@@ -1,0 +1,14 @@
+name: Vprofile Actions
+on: workflow_dispatch
+jobs:
+    Testing:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+             
+            - name: Maven Test
+              run: mvn test
+            
+            - name: Checkstyle
+              run: mvn checkstyle:checkstyle
