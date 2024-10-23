@@ -1,4 +1,4 @@
-name: Vprofile Actions
+name: Vprofile Actionss
 on: [push, workflow_dispatch]
 env: 
   AWS_REGION: us-west-1
