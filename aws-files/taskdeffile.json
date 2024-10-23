@@ -1,9 +1,9 @@
 {
-    "family": "vproappstagetask",
+    "taskDefinitionArn": "arn:aws:ecs:us-west-1:402368784720:task-definition/vproapp-github-tdef:1",
     "containerDefinitions": [
         {
             "name": "vproapp",
-            "image": "716657688884.dkr.ecr.us-east-2.amazonaws.com/actapp:latest",
+            "image": "402368784720.dkr.ecr.us-west-1.amazonaws.com/githubaction-image",
             "cpu": 0,
             "portMappings": [
                 {
@@ -23,17 +23,58 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
+                    "awslogs-group": "/ecs/vproapp-github-tdef",
+                    "mode": "non-blocking",
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/vproappstagetask",
-                    "awslogs-region": "us-east-2",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "us-west-1",
                     "awslogs-stream-prefix": "ecs"
                 },
                 "secretOptions": []
-            }
+            },
+            "systemControls": []
         }
     ],
-    "executionRoleArn": "arn:aws:iam::716657688884:role/ecsTaskExecutionRole",
+    "family": "vproapp-github-tdef",
+    "executionRoleArn": "arn:aws:iam::402368784720:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
@@ -43,10 +84,12 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
+    "registeredAt": "2024-10-23T00:16:03.671Z",
+    "registeredBy": "arn:aws:iam::402368784720:user/Lasda",
     "tags": [
         {
-            "key": "Name",
-            "value": "vprofileappstagtaskdef"
+            "key": "name",
+            "value": "vprotask-tdef"
         }
     ]
 }
